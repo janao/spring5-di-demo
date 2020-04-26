@@ -1,4 +1,4 @@
-package guru.springframework.services;
+package guru.services;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
@@ -14,7 +14,11 @@ public class PrimarySpanishGreetingService implements GreetingService {
 
     private GreetingRepository greetingRepository;
 
-    @Override
+    public PrimarySpanishGreetingService(GreetingRepository greetingRepository) {
+		this.greetingRepository = greetingRepository;
+	}
+
+	@Override
     public String sayGreeting() {
         return greetingRepository.getSpanishGreeting();
     }
